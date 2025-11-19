@@ -473,12 +473,54 @@ if page == "🫘 Kidney Disease":
                     else:
                         ckd_detected = int(prediction) == 0
 
+                # Clinical high-risk override: trigger CKD if strong markers present
+                rbc_abnormal = (rbc == 'abnormal')
+                pc_abnormal = (pc == 'abnormal')
+                pcc_present = (pcc == 'present')
+                pe_present = (pe == 'yes')
+                ane_present = (ane == 'yes')
+                high_creatinine = (sc >= 1.8)
+                high_albumin = (al >= 3)
+                high_urea = (bu >= 50)
+                high_glucose = (bgr >= 150)
+
+                override_reasons = []
+                if high_creatinine:
+                    override_reasons.append('Serum Creatinine ≥ 1.8 mg/dL')
+                if high_albumin:
+                    override_reasons.append('Urine Albumin ≥ 3')
+                if rbc_abnormal and pc_abnormal:
+                    override_reasons.append('Abnormal RBC and Pus Cells')
+                if pcc_present:
+                    override_reasons.append('Pus Cell Clumps present')
+                if pe_present:
+                    override_reasons.append('Pedal Edema present')
+                if ane_present:
+                    override_reasons.append('Anemia present')
+                if high_urea:
+                    override_reasons.append('Blood Urea ≥ 50 mg/dL')
+                if high_glucose:
+                    override_reasons.append('Random Blood Glucose ≥ 150 mg/dL')
+
+                risk_override = (
+                    high_creatinine and (high_albumin or rbc_abnormal or pc_abnormal or pcc_present)
+                ) or (
+                    high_creatinine and (pe_present or ane_present)
+                ) or (
+                    high_creatinine and high_urea
+                )
+
                 if ckd_detected:
                     st.markdown(f'<div class="gradient-card"><h2>⚠️ Chronic Kidney Disease Detected</h2><p style="font-size:20px;">Confidence: {confidence:.2f}%</p></div>', unsafe_allow_html=True)
                     st.warning("⚠️ **Recommendation:** Immediate consultation with a nephrologist is advised.")
                 else:
-                    st.markdown(f'<div class="success-box"><h2>✅ No Chronic Kidney Disease Detected</h2><p style="font-size:20px;">Confidence: {confidence:.2f}%</p></div>', unsafe_allow_html=True)
-                    st.info("💡 **Recommendation:** Maintain a healthy lifestyle and regular checkups.")
+                    if risk_override:
+                        reasons_str = ', '.join(override_reasons)
+                        st.markdown(f'<div class="gradient-card"><h2>⚠️ Chronic Kidney Disease Detected</h2><p style="font-size:20px;">Confidence: {confidence:.2f}%</p><p style="font-size:16px;">Clinical override triggered: {reasons_str}</p></div>', unsafe_allow_html=True)
+                        st.warning("⚠️ **Recommendation:** Immediate consultation with a nephrologist is advised.")
+                    else:
+                        st.markdown(f'<div class="success-box"><h2>✅ No Chronic Kidney Disease Detected</h2><p style="font-size:20px;">Confidence: {confidence:.2f}%</p></div>', unsafe_allow_html=True)
+                        st.info("💡 **Recommendation:** Maintain a healthy lifestyle and regular checkups.")
 
 # Liver Disease Prediction Page
 elif page == "🫀 Liver Disease":
