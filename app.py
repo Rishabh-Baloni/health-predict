@@ -637,15 +637,15 @@ elif page == "🧠 Parkinson's Disease":
             
             st.markdown('<span style="font-size:1.5rem;font-weight:700;display:flex;align-items:center;gap:0.5em;">Frequency Measures <span style="font-size:2rem;">🎵</span></span>', unsafe_allow_html=True)
             st.markdown('<span style="font-size:1.5rem;font-weight:700;display:flex;align-items:center;gap:0.5em;">Jitter Measures <span style="font-size:2rem;">🪁</span></span>', unsafe_allow_html=True)
-            mdvp_fo = st.number_input("MDVP:Fo 📢", 50.0, 300.0,
+            mdvp_fo = st.number_input("Fo 📢", 50.0, 300.0,
                                      value=st.session_state.parkinsons_values.get('mdvp_fo', 150.0),
                                      step=0.1,
                                      help="Average vocal fundamental frequency (normal: 80-260 Hz)")
-            mdvp_fhi = st.number_input("MDVP:Fhi ⬆️", 100.0, 600.0,
+            mdvp_fhi = st.number_input("Fhi ⬆️", 100.0, 600.0,
                                       value=st.session_state.parkinsons_values.get('mdvp_fhi', 180.0),
                                       step=0.1,
                                       help="Maximum vocal fundamental frequency")
-            mdvp_flo = st.number_input("MDVP:Flo ⬇️", 50.0, 300.0,
+            mdvp_flo = st.number_input("Flo ⬇️", 50.0, 300.0,
                                       value=st.session_state.parkinsons_values.get('mdvp_flo', 100.0),
                                       step=0.1,
                                       help="Minimum vocal fundamental frequency")
