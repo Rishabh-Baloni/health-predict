@@ -333,10 +333,12 @@ if page == "🫘 Kidney Disease":
         bp = st.number_input("Blood Pressure (mm/Hg) 🫀", 50, 200, 
                            st.session_state.kidney_values.get('bp', 80),
                            help="Blood pressure measurement")
-        sg = st.selectbox("Specific Gravity 💧", [1.005, 1.010, 1.015, 1.020, 1.025],
-                        index=[1.005, 1.010, 1.015, 1.020, 1.025].index(
-                            st.session_state.kidney_values.get('sg', 1.020)),
+        sg_values = [1.005, 1.010, 1.015, 1.020, 1.025]
+        sg = st.selectbox("Specific Gravity 💧", sg_values,
+                        index=sg_values.index(st.session_state.kidney_values.get('sg', 1.020)),
                         help="Urine specific gravity")
+        # Training used LabelEncoder on 'sg' (categorical). Map selected value to LE index.
+        sg_enc = sg_values.index(sg)
         al = st.selectbox("Albumin 🧪", [0, 1, 2, 3, 4, 5],
                         index=st.session_state.kidney_values.get('al', 0),
                         help="Albumin level in urine")
@@ -407,8 +409,9 @@ if page == "🫘 Kidney Disease":
         
         if st.button("🔍 Predict Kidney Disease", type="primary"):
             # Encode categorical variables
-            rbc_enc = 1 if rbc == "abnormal" else 0
-            pc_enc = 1 if pc == "abnormal" else 0
+            # Training LabelEncoder mapping: 'abnormal'->0, 'normal'->1
+            rbc_enc = 0 if rbc == "abnormal" else 1
+            pc_enc = 0 if pc == "abnormal" else 1
             pcc_enc = 1 if pcc == "present" else 0
             ba_enc = 1 if ba == "present" else 0
             htn_enc = 1 if htn == "yes" else 0
@@ -419,7 +422,7 @@ if page == "🫘 Kidney Disease":
             ane_enc = 1 if ane == "yes" else 0
             
             # Create feature array
-            features = np.array([[age, bp, sg, al, su, rbc_enc, pc_enc, pcc_enc, ba_enc, bgr, 
+            features = np.array([[age, bp, sg_enc, al, su, rbc_enc, pc_enc, pcc_enc, ba_enc, bgr, 
                                 bu, sc, sod, pot, hemo, pcv, wc, rc, htn_enc, dm_enc, cad_enc, 
                                 appet_enc, pe_enc, ane_enc]])
             
