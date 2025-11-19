@@ -130,12 +130,22 @@ st.markdown("""
     }
     
     .info-box {
-        background: white;
+        background: #f8f9fa;
         padding: 1.5rem;
         border-radius: 12px;
         border: 2px solid #667eea;
         margin: 1rem 0;
-        color: #333;
+        color: #1a1a1a;
+    }
+    
+    .info-box h2, .info-box h3, .info-box h4 {
+        color: #1a1a1a !important;
+        font-weight: 600;
+    }
+    
+    .info-box p, .info-box li {
+        color: #2d2d2d !important;
+        font-weight: 400;
     }
     
     .stButton>button {
