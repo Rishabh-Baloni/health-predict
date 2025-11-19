@@ -54,7 +54,10 @@ st.markdown("""
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         border-left: 5px solid #667eea;
-        height: 100%;
+        height: 280px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
     }
     
     .feature-card:hover {
@@ -65,6 +68,15 @@ st.markdown("""
     .feature-card h3 {
         font-size: 1.2rem;
         margin-bottom: 0.8rem;
+        color: #1f1f1f;
+        font-weight: 600;
+    }
+    
+    .feature-card p {
+        color: #333;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin: 0.4rem 0;
     }
     
     .gradient-card {
@@ -75,6 +87,11 @@ st.markdown("""
         color: white;
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         text-align: center;
+        height: 180px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     
     .gradient-card h3 {
