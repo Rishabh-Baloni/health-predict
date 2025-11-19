@@ -636,7 +636,7 @@ elif page == "🧠 Parkinson's Disease":
             st.markdown("---")
             
             st.markdown('<span style="font-size:1.5rem;font-weight:700;display:flex;align-items:center;gap:0.5em;">Frequency Measures <span style="font-size:2rem;">🎵</span></span>', unsafe_allow_html=True)
-                        st.markdown('<span style="font-size:1.5rem;font-weight:700;display:flex;align-items:center;gap:0.5em;">Jitter Measures <span style="font-size:2rem;">🪁</span></span>', unsafe_allow_html=True)
+            st.markdown('<span style="font-size:1.5rem;font-weight:700;display:flex;align-items:center;gap:0.5em;">Jitter Measures <span style="font-size:2rem;">🪁</span></span>', unsafe_allow_html=True)
             mdvp_fo = st.number_input("MDVP:Fo(Hz) 📢", 50.0, 300.0,
                                      value=st.session_state.parkinsons_values.get('mdvp_fo', 150.0),
                                      step=0.1,
