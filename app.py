@@ -312,6 +312,7 @@ if page == "🫘 Kidney Disease":
                 'wc': 9200, 'rc': 3.8, 'htn': 'yes', 'dm': 'yes', 'cad': 'no',
                 'appet': 'poor', 'pe': 'yes', 'ane': 'yes'
             }
+            st.success("✅ Loaded sample CKD patient data")
         
         if use_sample_healthy:
             st.session_state.kidney_values = {
@@ -321,6 +322,7 @@ if page == "🫘 Kidney Disease":
                 'wc': 7500, 'rc': 5.0, 'htn': 'no', 'dm': 'no', 'cad': 'no',
                 'appet': 'good', 'pe': 'no', 'ane': 'no'
             }
+            st.success("✅ Loaded sample healthy patient data")
         
         st.markdown("---")
         
@@ -441,7 +443,7 @@ if page == "🫘 Kidney Disease":
                 st.plotly_chart(fig, use_container_width=True)
             
             with col_result:
-                if prediction == 1:  # CKD
+                if prediction == 0:  # CKD (ckd=0, notckd=1 after label encoding)
                     st.markdown(f'<div class="gradient-card"><h2>⚠️ Chronic Kidney Disease Detected</h2><p style="font-size:20px;">Confidence: {confidence:.2f}%</p></div>', unsafe_allow_html=True)
                     st.warning("⚠️ **Recommendation:** Immediate consultation with a nephrologist is advised.")
                 else:
