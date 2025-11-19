@@ -27,6 +27,16 @@ st.markdown("""
         padding: 0 1rem;
     }
     
+    /* Make columns stretch to equal height */
+    .row-widget.stHorizontal {
+        align-items: stretch !important;
+    }
+    
+    .row-widget.stHorizontal > div {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    
     .main-header {
         font-size: 2.5rem;
         font-weight: 700;
@@ -54,10 +64,11 @@ st.markdown("""
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         border-left: 5px solid #667eea;
-        min-height: 240px;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
+        flex: 1;
+        height: 100%;
     }
     
     .feature-card:hover {
@@ -88,11 +99,12 @@ st.markdown("""
         color: white;
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         text-align: center;
-        min-height: 160px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        flex: 1;
+        height: 100%;
     }
     
     .gradient-card h3 {
