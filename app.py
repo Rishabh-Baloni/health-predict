@@ -54,7 +54,7 @@ st.markdown("""
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         border-left: 5px solid #667eea;
-        height: 280px;
+        min-height: 240px;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -66,32 +66,45 @@ st.markdown("""
     }
     
     .feature-card h3 {
-        font-size: 1.2rem;
+        font-size: 1.15rem;
         margin-bottom: 0.8rem;
         color: #1f1f1f;
         font-weight: 600;
+        line-height: 1.3;
     }
     
     .feature-card p {
         color: #333;
-        font-size: 0.95rem;
-        line-height: 1.6;
-        margin: 0.4rem 0;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin: 0.3rem 0;
     }
     
     .gradient-card {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        padding: 1.5rem;
+        padding: 1.2rem;
         border-radius: 12px;
         margin: 1rem 0;
         color: white;
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         text-align: center;
-        height: 180px;
+        min-height: 160px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+    
+    .gradient-card h3 {
+        font-size: 1.05rem;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+    }
+    
+    .gradient-card p {
+        font-size: 0.9rem;
+        margin: 0;
+        line-height: 1.4;
     }
     
     .gradient-card h3 {
