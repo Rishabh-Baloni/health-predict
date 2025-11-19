@@ -637,61 +637,61 @@ elif page == "🧠 Parkinson's Disease":
             
             st.markdown('<span style="font-size:1.5rem;font-weight:700;display:flex;align-items:center;gap:0.5em;">Frequency Measures <span style="font-size:2rem;">🎵</span></span>', unsafe_allow_html=True)
             st.markdown('<span style="font-size:1.5rem;font-weight:700;display:flex;align-items:center;gap:0.5em;">Jitter Measures <span style="font-size:2rem;">🪁</span></span>', unsafe_allow_html=True)
-            mdvp_fo = st.number_input("MDVP:Fo(Hz) 📢", 50.0, 300.0,
+            mdvp_fo = st.number_input("MDVP:Fo 📢", 50.0, 300.0,
                                      value=st.session_state.parkinsons_values.get('mdvp_fo', 150.0),
                                      step=0.1,
                                      help="Average vocal fundamental frequency (normal: 80-260 Hz)")
-            mdvp_fhi = st.number_input("MDVP:Fhi(Hz) ⬆️", 100.0, 600.0,
+            mdvp_fhi = st.number_input("MDVP:Fhi ⬆️", 100.0, 600.0,
                                       value=st.session_state.parkinsons_values.get('mdvp_fhi', 180.0),
                                       step=0.1,
                                       help="Maximum vocal fundamental frequency")
-            mdvp_flo = st.number_input("MDVP:Flo(Hz) ⬇️", 50.0, 300.0,
+            mdvp_flo = st.number_input("MDVP:Flo ⬇️", 50.0, 300.0,
                                       value=st.session_state.parkinsons_values.get('mdvp_flo', 100.0),
                                       step=0.1,
                                       help="Minimum vocal fundamental frequency")
-            mdvp_jitter_percent = st.number_input("MDVP:Jitter% 📊", 0.0, 1.0,
+            mdvp_jitter_percent = st.number_input("Jitter% 📊", 0.0, 1.0,
                                                  value=st.session_state.parkinsons_values.get('mdvp_jitter_percent', 0.005),
                                                  step=0.001, format="%.5f",
                                                  help="Measure of variation in frequency (lower is better)")
-            mdvp_jitter_abs = st.number_input("MDVP:JitterAbs 🔍", 0.0, 0.001,
+            mdvp_jitter_abs = st.number_input("JitterAbs 🔍", 0.0, 0.001,
                                              value=st.session_state.parkinsons_values.get('mdvp_jitter_abs', 0.00003),
                                              step=0.000001, format="%.8f",
                                              help="Absolute jitter in microseconds")
-            mdvp_rap = st.number_input("MDVP:RAP 📈", 0.0, 0.1,
+            mdvp_rap = st.number_input("RAP 📈", 0.0, 0.1,
                                       value=st.session_state.parkinsons_values.get('mdvp_rap', 0.003),
                                       step=0.001, format="%.5f",
                                       help="Relative Amplitude Perturbation")
-            mdvp_ppq = st.number_input("MDVP:PPQ 📉", 0.0, 0.1,
+            mdvp_ppq = st.number_input("PPQ 📉", 0.0, 0.1,
                                       value=st.session_state.parkinsons_values.get('mdvp_ppq', 0.003),
                                       step=0.001, format="%.5f",
                                       help="Five-point Period Perturbation Quotient")
-            jitter_ddp = st.number_input("Jitter:DDP 📐", 0.0, 0.1,
+            jitter_ddp = st.number_input("DDP 📐", 0.0, 0.1,
                                         value=st.session_state.parkinsons_values.get('jitter_ddp', 0.008),
                                         step=0.001, format="%.5f",
                                         help="Average absolute difference of differences")
             
             st.markdown('<span style="font-size:1.5rem;font-weight:700;display:flex;align-items:center;gap:0.5em;">Shimmer Measures <span style="font-size:2rem;">🌊</span></span>', unsafe_allow_html=True)
-            mdvp_shimmer = st.number_input("MDVP:Shimmer 📊", 0.0, 1.0,
+            mdvp_shimmer = st.number_input("Shimmer 📊", 0.0, 1.0,
                                           value=st.session_state.parkinsons_values.get('mdvp_shimmer', 0.03),
                                           step=0.001, format="%.5f",
                                           help="Measure of variation in amplitude")
-            mdvp_shimmer_db = st.number_input("MDVP:ShimmerdB 🔊", 0.0, 2.0,
+            mdvp_shimmer_db = st.number_input("ShimmerdB 🔊", 0.0, 2.0,
                                          value=st.session_state.parkinsons_values.get('mdvp_shimmer_db', 0.3),
                                          step=0.01,
                                          help="Shimmer in decibels")
-            shimmer_apq3 = st.number_input("Shimmer:APQ3 3️⃣", 0.0, 0.1,
+            shimmer_apq3 = st.number_input("APQ3 3️⃣", 0.0, 0.1,
                                           value=st.session_state.parkinsons_values.get('shimmer_apq3', 0.015),
                                           step=0.001, format="%.5f",
                                           help="Three-point Amplitude Perturbation Quotient")
-            shimmer_apq5 = st.number_input("Shimmer:APQ5 5️⃣", 0.0, 0.1,
+            shimmer_apq5 = st.number_input("APQ5 5️⃣", 0.0, 0.1,
                                           value=st.session_state.parkinsons_values.get('shimmer_apq5', 0.017),
                                           step=0.001, format="%.5f",
                                           help="Five-point Amplitude Perturbation Quotient")
-            mdvp_apq = st.number_input("MDVP:APQ 📏", 0.0, 0.1,
+            mdvp_apq = st.number_input("APQ 📏", 0.0, 0.1,
                                       value=st.session_state.parkinsons_values.get('mdvp_apq', 0.024),
                                       step=0.001, format="%.5f",
                                       help="11-point Amplitude Perturbation Quotient")
-            shimmer_dda = st.number_input("Shimmer:DDA 〰️", 0.0, 0.1,
+            shimmer_dda = st.number_input("DDA 〰️", 0.0, 0.1,
                                          value=st.session_state.parkinsons_values.get('shimmer_dda', 0.045),
                                          step=0.001, format="%.5f",
                                          help="Average absolute difference between amplitudes")
@@ -713,11 +713,11 @@ elif page == "🧠 Parkinson's Disease":
                                  value=st.session_state.parkinsons_values.get('dfa', 0.7),
                                  step=0.01,
                                  help="Detrended Fluctuation Analysis")
-            spread1 = st.number_input("spread1 📊", -8.0, -2.0,
+            spread1 = st.number_input("Spread1 📊", -8.0, -2.0,
                                      value=st.session_state.parkinsons_values.get('spread1', -5.0),
                                      step=0.1,
                                      help="Nonlinear measure of fundamental frequency variation")
-            spread2 = st.number_input("spread2 📉", 0.0, 0.5,
+            spread2 = st.number_input("Spread2 📉", 0.0, 0.5,
                                      value=st.session_state.parkinsons_values.get('spread2', 0.2),
                                      step=0.01,
                                      help="Second nonlinear measure of variation")
