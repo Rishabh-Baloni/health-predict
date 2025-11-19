@@ -452,17 +452,19 @@ if page == "🫘 Kidney Disease":
                 if hasattr(model, 'classes_'):
                     num_classes = len(getattr(model, 'classes_', []))
                     if num_classes == 2:
-                        # Assume index 1 -> CKD, index 0 -> Not CKD
-                        ckd_detected = (prediction == 1)
+                        # LabelEncoder typically maps ['ckd', 'notckd'] -> [0, 1]
+                        # So index 0 => CKD, index 1 => Not CKD
+                        ckd_detected = (prediction == 0)
                     elif num_classes == 3:
-                        # Assume index 0 -> Not CKD, indices 1/2 -> CKD (match observed behavior)
-                        ckd_detected = (prediction in [1, 2])
+                        # Common dataset has ['ckd', 'ckd\t', 'notckd'] -> [0, 1, 2]
+                        # Treat 0 and 1 as CKD, 2 as Not CKD
+                        ckd_detected = (prediction in [0, 1])
                     else:
-                        # Fallback: treat non-zero predictions as CKD
-                        ckd_detected = (prediction != 0)
+                        # Sensible fallback: consider class 0 as CKD
+                        ckd_detected = (prediction == 0)
                 else:
                     # Fallback when classes_ not available
-                    ckd_detected = (prediction != 0)
+                    ckd_detected = (prediction == 0)
 
                 if ckd_detected:
                     st.markdown(f'<div class="gradient-card"><h2>⚠️ Chronic Kidney Disease Detected</h2><p style="font-size:20px;">Confidence: {confidence:.2f}%</p></div>', unsafe_allow_html=True)
