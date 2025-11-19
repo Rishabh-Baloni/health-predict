@@ -451,23 +451,27 @@ if page == "🫘 Kidney Disease":
                 # - Empirical tests show class 0 often corresponds to healthy (Not CKD) in current model artifact.
                 # - Handle both binary and 3-class cases safely.
 
+                # Robust CKD/Not CKD mapping using saved metadata when available
+                meta = load_model('models/kidney/kidney_extratrees_metadata.pkl')
                 ckd_detected = False
-                if hasattr(model, 'classes_'):
-                    num_classes = len(getattr(model, 'classes_', []))
-                    if num_classes == 2:
-                        # LabelEncoder typically maps ['ckd', 'notckd'] -> [0, 1]
-                        # So index 0 => CKD, index 1 => Not CKD
-                        ckd_detected = (prediction == 0)
-                    elif num_classes == 3:
-                        # Common dataset has ['ckd', 'ckd\t', 'notckd'] -> [0, 1, 2]
-                        # Treat 0 and 1 as CKD, 2 as Not CKD
-                        ckd_detected = (prediction in [0, 1])
+                if isinstance(meta, dict) and 'target_classes' in meta:
+                    text_classes = [str(c).strip().lower().replace('\t','').replace(' ', '') for c in meta['target_classes']]
+                    ckd_indices = [i for i, c in enumerate(text_classes) if c in ('ckd', 'chronickidneydisease')]
+                    healthy_indices = [i for i, c in enumerate(text_classes) if c in ('notckd', 'nockd', 'healthy', 'no_ckd', 'not_ckd')]
+                    if ckd_indices or healthy_indices:
+                        ckd_detected = int(prediction) in ckd_indices
                     else:
-                        # Sensible fallback: consider class 0 as CKD
-                        ckd_detected = (prediction == 0)
+                        # Fallback: infer from number of classes
+                        if hasattr(model, 'classes_') and len(getattr(model, 'classes_', [])) == 3:
+                            ckd_detected = int(prediction) in [0, 1]
+                        else:
+                            ckd_detected = int(prediction) == 0
                 else:
-                    # Fallback when classes_ not available
-                    ckd_detected = (prediction == 0)
+                    # Fallback when metadata not available
+                    if hasattr(model, 'classes_') and len(getattr(model, 'classes_', [])) == 3:
+                        ckd_detected = int(prediction) in [0, 1]
+                    else:
+                        ckd_detected = int(prediction) == 0
 
                 if ckd_detected:
                     st.markdown(f'<div class="gradient-card"><h2>⚠️ Chronic Kidney Disease Detected</h2><p style="font-size:20px;">Confidence: {confidence:.2f}%</p></div>', unsafe_allow_html=True)
