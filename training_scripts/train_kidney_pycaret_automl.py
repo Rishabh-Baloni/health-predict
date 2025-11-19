@@ -12,7 +12,7 @@ print("=" * 60)
 
 # Load dataset
 print("\n1. Loading dataset...")
-df = pd.read_csv('data/kidney/kidney_disease.csv')
+df = pd.read_csv('data/kidney_disease/kidney_disease.csv')
 print(f"   Dataset shape: {df.shape}")
 
 # Data preprocessing

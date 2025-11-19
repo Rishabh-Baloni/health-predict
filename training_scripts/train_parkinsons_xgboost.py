@@ -19,7 +19,7 @@ print("="*60)
 
 # Load dataset
 print("\n1. Loading dataset...")
-df = pd.read_csv('data/parkinsons/parkinsons.data')
+df = pd.read_csv('data/parkinsons_disease/parkinsons.data')
 print(f"   Dataset shape: {df.shape}")
 print(f"   Missing values: {df.isnull().sum().sum()}")
 
