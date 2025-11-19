@@ -495,9 +495,11 @@ elif page == "🫀 Liver Disease":
         
         st.markdown("---")
         
-        st.subheader("Patient Information & Liver Function Tests")
+        st.subheader("Patient Information")
         age = st.number_input("Age (years) 👤", 1, 120, value=st.session_state.liver_values.get('age', 45), help="Patient's age in years")
         gender = st.selectbox("Gender ⚧️", ["Male", "Female"], index=0 if st.session_state.liver_values.get('gender', 'Male') == 'Male' else 1, help="Patient's biological gender")
+
+        st.subheader("Liver Function Tests")
         total_bilirubin = st.number_input("Total Bilirubin (mg/dL) 🟡", 0.1, 100.0, value=st.session_state.liver_values.get('total_bilirubin', 1.0), step=0.1, help="Total bilirubin level in blood (normal: 0.1-1.2 mg/dL)")
         direct_bilirubin = st.number_input("Direct Bilirubin (mg/dL) 🟠", 0.1, 50.0, value=st.session_state.liver_values.get('direct_bilirubin', 0.3), step=0.1, help="Direct bilirubin level (normal: 0.0-0.3 mg/dL)")
         alkaline_phosphotase = st.number_input("Alkaline Phosphotase (IU/L) ⚗️", 10, 2000, value=st.session_state.liver_values.get('alkaline_phosphotase', 200), help="ALP enzyme level (normal: 44-147 IU/L)")
