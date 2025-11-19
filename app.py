@@ -443,10 +443,10 @@ if page == "🫘 Kidney Disease":
                 st.plotly_chart(fig, use_container_width=True)
             
             with col_result:
-                if prediction == 0:  # CKD (ckd=0, notckd=1 after label encoding)
+                if prediction in [0, 1]:  # CKD (ckd=0, ckd\t=1, notckd=2)
                     st.markdown(f'<div class="gradient-card"><h2>⚠️ Chronic Kidney Disease Detected</h2><p style="font-size:20px;">Confidence: {confidence:.2f}%</p></div>', unsafe_allow_html=True)
                     st.warning("⚠️ **Recommendation:** Immediate consultation with a nephrologist is advised.")
-                else:
+                else:  # prediction == 2 (notckd)
                     st.markdown(f'<div class="success-box"><h2>✅ No Chronic Kidney Disease Detected</h2><p style="font-size:20px;">Confidence: {confidence:.2f}%</p></div>', unsafe_allow_html=True)
                     st.info("💡 **Recommendation:** Maintain a healthy lifestyle and regular checkups.")
 

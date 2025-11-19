@@ -54,9 +54,18 @@ for col in categorical_cols:
 
 # Encode categorical features
 print("\n3. Encoding categorical features...")
-le = LabelEncoder()
-for col in categorical_cols + ['classification']:
+# Create separate encoders for each column to maintain consistency
+encoders = {}
+for col in categorical_cols:
+    le = LabelEncoder()
     df[col] = le.fit_transform(df[col].astype(str))
+    encoders[col] = le
+
+# Handle target variable separately
+target_le = LabelEncoder()
+df['classification'] = target_le.fit_transform(df['classification'].astype(str))
+print(f"   Target classes: {target_le.classes_}")
+print(f"   Target mapping: {dict(zip(target_le.classes_, target_le.transform(target_le.classes_)))}")
 
 # Prepare features and target
 print("\n4. Preparing features and target...")
@@ -161,10 +170,13 @@ metadata = {
     'model_name': best_model_name,
     'accuracy': best_accuracy,
     'features': X.columns.tolist(),
-    'target_classes': ['Not CKD', 'CKD']
+    'target_classes': target_le.classes_.tolist(),
+    'target_mapping': dict(zip(target_le.classes_, target_le.transform(target_le.classes_)))
 }
 joblib.dump(metadata, 'models/kidney/kidney_extratrees_metadata.pkl')
+joblib.dump(target_le, 'models/kidney/kidney_extratrees_target_encoder.pkl')
 print("   ✓ Metadata saved: models/kidney/kidney_extratrees_metadata.pkl")
+print("   ✓ Target encoder saved: models/kidney/kidney_extratrees_target_encoder.pkl")
 
 print("\n✅ Training complete!")
 print("="*60)
