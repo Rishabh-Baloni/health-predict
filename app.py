@@ -16,6 +16,9 @@ st.set_page_config(
 # Enhanced Custom CSS with gradients and modern design
 st.markdown("""
     <style>
+    .info-box:empty {
+        display: none !important;
+    }
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
     
     * {
@@ -774,18 +777,12 @@ elif page == "🧠 Parkinson's Disease":
 elif page == "🏠 Home":
     st.markdown('<div class="main-header">🏥 HealthPredict</div>', unsafe_allow_html=True)
     st.markdown('<div class="sub-header">AI-Powered Multi-Disease Detection Platform</div>', unsafe_allow_html=True)
-    
-    st.markdown("---")
-    
-    # Introduction
-    st.markdown('<div class="info-box">', unsafe_allow_html=True)
     st.header("Welcome to HealthPredict")
     st.write("""
     HealthPredict is an advanced machine learning platform designed to assist in the early detection 
     of chronic diseases. Using state-of-the-art algorithms and clinical data, our system can predict 
     the likelihood of three major chronic conditions with high accuracy.
     """)
-    st.markdown('</div>', unsafe_allow_html=True)
     
     # Features
     st.header("🎯 Available Disease Predictions")
