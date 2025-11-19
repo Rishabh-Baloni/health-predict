@@ -22,33 +22,39 @@ st.markdown("""
         font-family: 'Poppins', sans-serif;
     }
     
+    .main {
+        max-width: 1400px;
+        padding: 0 1rem;
+    }
+    
     .main-header {
-        font-size: 3.5rem;
+        font-size: 2.5rem;
         font-weight: 700;
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         text-align: center;
-        padding: 20px 0;
+        padding: 1rem 0;
         animation: fadeIn 1s ease-in;
     }
     
     .sub-header {
-        font-size: 1.5rem;
+        font-size: 1.1rem;
         color: #555;
         text-align: center;
-        padding-bottom: 30px;
+        padding-bottom: 1.5rem;
         animation: fadeIn 1.5s ease-in;
     }
     
     .feature-card {
         background: white;
-        padding: 25px;
-        border-radius: 15px;
-        margin: 15px 0;
+        padding: 1.5rem;
+        border-radius: 12px;
+        margin: 1rem 0;
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         border-left: 5px solid #667eea;
+        height: 100%;
     }
     
     .feature-card:hover {
@@ -56,21 +62,37 @@ st.markdown("""
         box-shadow: 0 8px 15px rgba(0,0,0,0.2);
     }
     
+    .feature-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+    }
+    
     .gradient-card {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        padding: 25px;
-        border-radius: 15px;
-        margin: 15px 0;
+        padding: 1.5rem;
+        border-radius: 12px;
+        margin: 1rem 0;
         color: white;
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+    
+    .gradient-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .gradient-card p {
+        font-size: 0.95rem;
+        margin: 0;
     }
     
     .info-box {
         background: white;
-        padding: 20px;
+        padding: 1.5rem;
         border-radius: 12px;
         border: 2px solid #667eea;
-        margin: 15px 0;
+        margin: 1rem 0;
         color: #333;
     }
     
@@ -78,9 +100,9 @@ st.markdown("""
         width: 100%;
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: white;
-        font-size: 16px;
+        font-size: 1rem;
         font-weight: 600;
-        padding: 12px;
+        padding: 0.75rem;
         border-radius: 10px;
         border: none;
         transition: all 0.3s ease;
@@ -98,7 +120,27 @@ st.markdown("""
     }
     
     .success-box {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        padding: 1.5rem;
+        border-radius: 12px;
+        margin: 1rem 0;
+        color: white;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+    
+    /* Responsive design */
+    @media (max-width: 768px) {
+        .main-header {
+            font-size: 2rem;
+        }
+        .sub-header {
+            font-size: 1rem;
+        }
+        .feature-card h3, .gradient-card h3 {
+            font-size: 1rem;
+        }
+    }
         padding: 20px;
         border-radius: 12px;
         color: white;
@@ -702,12 +744,10 @@ elif page == "🏠 Home":
         st.markdown("""
         <div class="feature-card">
             <h3>🫘 Chronic Kidney Disease</h3>
-            <ul>
-                <li><b>24 Clinical Features</b></li>
-                <li><b>Extra Trees Algorithm</b></li>
-                <li><b>100% Accuracy</b></li>
-                <li>Detects CKD using blood tests and clinical parameters</li>
-            </ul>
+            <p><b>24 Clinical Features</b></p>
+            <p><b>Extra Trees Algorithm</b></p>
+            <p><b>100% Accuracy</b></p>
+            <p>Detects CKD using blood tests and clinical parameters</p>
         </div>
         """, unsafe_allow_html=True)
     
@@ -715,12 +755,10 @@ elif page == "🏠 Home":
         st.markdown("""
         <div class="feature-card">
             <h3>🫀 Liver Disease</h3>
-            <ul>
-                <li><b>10 Clinical Features</b></li>
-                <li><b>Random Forest</b></li>
-                <li><b>70% Accuracy</b></li>
-                <li>Predicts liver disease from liver function tests</li>
-            </ul>
+            <p><b>10 Clinical Features</b></p>
+            <p><b>Random Forest</b></p>
+            <p><b>70% Accuracy</b></p>
+            <p>Predicts liver disease from liver function tests</p>
         </div>
         """, unsafe_allow_html=True)
     
@@ -728,12 +766,10 @@ elif page == "🏠 Home":
         st.markdown("""
         <div class="feature-card">
             <h3>🧠 Parkinson's Disease</h3>
-            <ul>
-                <li><b>22 Voice Features</b></li>
-                <li><b>XGBoost Algorithm</b></li>
-                <li><b>92.31% Accuracy</b></li>
-                <li>Detects PD from voice measurements</li>
-            </ul>
+            <p><b>22 Voice Features</b></p>
+            <p><b>XGBoost Algorithm</b></p>
+            <p><b>92.31% Accuracy</b></p>
+            <p>Detects PD from voice measurements</p>
         </div>
         """, unsafe_allow_html=True)
     
