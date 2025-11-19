@@ -1,7 +1,13 @@
+
 import streamlit as st
+st.set_page_config(
+    page_title="HealthPredict - AI Disease Detection",
+    page_icon="🏥",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
 import joblib
 import sys
-import streamlit as st
 import xgboost
 import sklearn
 
@@ -14,14 +20,6 @@ import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
 from pathlib import Path
-
-# Set page configuration
-st.set_page_config(
-    page_title="HealthPredict - AI Disease Detection",
-    page_icon="🏥",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
 
 # Enhanced Custom CSS with gradients and modern design
 st.markdown("""
