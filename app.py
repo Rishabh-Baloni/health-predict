@@ -221,89 +221,86 @@ if page == "🫘 Kidney Disease":
                 'appet': 'good', 'pe': 'no', 'ane': 'no'
             }
         
-        col1, col2, col3 = st.columns(3)
+        st.markdown("---")
         
-        with col1:
-            st.subheader("Basic Information")
-            age = st.number_input("Age (years) 👤", 1, 120, 
-                                st.session_state.kidney_values.get('age', 50),
-                                help="Patient's age in years")
-            bp = st.number_input("Blood Pressure (mm/Hg) 🫀", 50, 200, 
-                               st.session_state.kidney_values.get('bp', 80),
-                               help="Blood pressure measurement")
-            sg = st.selectbox("Specific Gravity 💧", [1.005, 1.010, 1.015, 1.020, 1.025],
-                            index=[1.005, 1.010, 1.015, 1.020, 1.025].index(
-                                st.session_state.kidney_values.get('sg', 1.020)),
-                            help="Urine specific gravity")
-            al = st.selectbox("Albumin 🧪", [0, 1, 2, 3, 4, 5],
-                            index=st.session_state.kidney_values.get('al', 0),
-                            help="Albumin level in urine")
-            su = st.selectbox("Sugar 🍬", [0, 1, 2, 3, 4, 5],
-                            index=st.session_state.kidney_values.get('su', 0),
-                            help="Sugar level in urine")
-            rbc = st.selectbox("Red Blood Cells 🔴", ["normal", "abnormal"],
-                             index=0 if st.session_state.kidney_values.get('rbc', 'normal')=='normal' else 1,
-                             help="RBC in urine test")
-            pc = st.selectbox("Pus Cell 🦠", ["normal", "abnormal"],
-                            index=0 if st.session_state.kidney_values.get('pc', 'normal')=='normal' else 1,
-                            help="Pus cells in urine")
-            pcc = st.selectbox("Pus Cell Clumps 🧫", ["present", "notpresent"],
-                             index=0 if st.session_state.kidney_values.get('pcc', 'notpresent')=='present' else 1,
-                             help="Presence of pus cell clumps")
+        st.subheader("Basic Information")
+        age = st.number_input("Age (years) 👤", 1, 120, 
+                            st.session_state.kidney_values.get('age', 50),
+                            help="Patient's age in years")
+        bp = st.number_input("Blood Pressure (mm/Hg) 🫀", 50, 200, 
+                           st.session_state.kidney_values.get('bp', 80),
+                           help="Blood pressure measurement")
+        sg = st.selectbox("Specific Gravity 💧", [1.005, 1.010, 1.015, 1.020, 1.025],
+                        index=[1.005, 1.010, 1.015, 1.020, 1.025].index(
+                            st.session_state.kidney_values.get('sg', 1.020)),
+                        help="Urine specific gravity")
+        al = st.selectbox("Albumin 🧪", [0, 1, 2, 3, 4, 5],
+                        index=st.session_state.kidney_values.get('al', 0),
+                        help="Albumin level in urine")
+        su = st.selectbox("Sugar 🍬", [0, 1, 2, 3, 4, 5],
+                        index=st.session_state.kidney_values.get('su', 0),
+                        help="Sugar level in urine")
+        rbc = st.selectbox("Red Blood Cells 🔴", ["normal", "abnormal"],
+                         index=0 if st.session_state.kidney_values.get('rbc', 'normal')=='normal' else 1,
+                         help="RBC in urine test")
+        pc = st.selectbox("Pus Cell 🦠", ["normal", "abnormal"],
+                        index=0 if st.session_state.kidney_values.get('pc', 'normal')=='normal' else 1,
+                        help="Pus cells in urine")
+        pcc = st.selectbox("Pus Cell Clumps 🧫", ["present", "notpresent"],
+                         index=0 if st.session_state.kidney_values.get('pcc', 'notpresent')=='present' else 1,
+                         help="Presence of pus cell clumps")
+        ba = st.selectbox("Bacteria 🦠", ["present", "notpresent"],
+                        index=0 if st.session_state.kidney_values.get('ba', 'notpresent')=='present' else 1,
+                        help="Bacteria in urine")
         
-        with col2:
-            st.subheader("Blood Tests")
-            ba = st.selectbox("Bacteria 🦠", ["present", "notpresent"],
-                            index=0 if st.session_state.kidney_values.get('ba', 'notpresent')=='present' else 1,
-                            help="Bacteria in urine")
-            bgr = st.number_input("Blood Glucose Random (mgs/dl) 🩸", 20, 500, 
-                                st.session_state.kidney_values.get('bgr', 120),
-                                help="Random blood glucose level")
-            bu = st.number_input("Blood Urea (mgs/dl) 🧬", 1, 400, 
-                               st.session_state.kidney_values.get('bu', 40),
-                               help="Blood urea measurement")
-            sc = st.number_input("Serum Creatinine (mgs/dl) ⚗️", 0.1, 20.0, 
-                               float(st.session_state.kidney_values.get('sc', 1.2)), 0.1,
-                               help="Serum creatinine level")
-            sod = st.number_input("Sodium (mEq/L) 🧂", 50, 200, 
-                                st.session_state.kidney_values.get('sod', 140),
-                                help="Sodium level in blood")
-            pot = st.number_input("Potassium (mEq/L) 🥔", 1.0, 20.0, 
-                                float(st.session_state.kidney_values.get('pot', 4.5)), 0.1,
-                                help="Potassium level in blood")
-            hemo = st.number_input("Hemoglobin (gms) 🩸", 1.0, 20.0, 
-                                 float(st.session_state.kidney_values.get('hemo', 14.0)), 0.1,
-                                 help="Hemoglobin count")
-            pcv = st.number_input("Packed Cell Volume 📊", 10, 60, 
-                                st.session_state.kidney_values.get('pcv', 40),
-                                help="Packed cell volume percentage")
+        st.subheader("Blood Tests")
+        bgr = st.number_input("Blood Glucose Random (mgs/dl) 🩸", 20, 500, 
+                            st.session_state.kidney_values.get('bgr', 120),
+                            help="Random blood glucose level")
+        bu = st.number_input("Blood Urea (mgs/dl) 🧬", 1, 400, 
+                           st.session_state.kidney_values.get('bu', 40),
+                           help="Blood urea measurement")
+        sc = st.number_input("Serum Creatinine (mgs/dl) ⚗️", 0.1, 20.0, 
+                           float(st.session_state.kidney_values.get('sc', 1.2)), 0.1,
+                           help="Serum creatinine level")
+        sod = st.number_input("Sodium (mEq/L) 🧂", 50, 200, 
+                            st.session_state.kidney_values.get('sod', 140),
+                            help="Sodium level in blood")
+        pot = st.number_input("Potassium (mEq/L) 🥔", 1.0, 20.0, 
+                            float(st.session_state.kidney_values.get('pot', 4.5)), 0.1,
+                            help="Potassium level in blood")
+        hemo = st.number_input("Hemoglobin (gms) 🩸", 1.0, 20.0, 
+                             float(st.session_state.kidney_values.get('hemo', 14.0)), 0.1,
+                             help="Hemoglobin count")
+        pcv = st.number_input("Packed Cell Volume 📊", 10, 60, 
+                            st.session_state.kidney_values.get('pcv', 40),
+                            help="Packed cell volume percentage")
         
-        with col3:
-            st.subheader("Additional Parameters")
-            wc = st.number_input("White Blood Cell Count (cells/cumm) ⚪", 1000, 30000, 
-                               st.session_state.kidney_values.get('wc', 8000),
-                               help="WBC count")
-            rc = st.number_input("Red Blood Cell Count (millions/cmm) 🔴", 1.0, 10.0, 
-                               float(st.session_state.kidney_values.get('rc', 4.5)), 0.1,
-                               help="RBC count")
-            htn = st.selectbox("Hypertension 💔", ["yes", "no"],
-                             index=0 if st.session_state.kidney_values.get('htn', 'no')=='yes' else 1,
-                             help="History of hypertension")
-            dm = st.selectbox("Diabetes Mellitus 🍭", ["yes", "no"],
-                            index=0 if st.session_state.kidney_values.get('dm', 'no')=='yes' else 1,
-                            help="History of diabetes")
-            cad = st.selectbox("Coronary Artery Disease 🫀", ["yes", "no"],
-                             index=0 if st.session_state.kidney_values.get('cad', 'no')=='yes' else 1,
-                             help="Coronary artery disease history")
-            appet = st.selectbox("Appetite 🍽️", ["good", "poor"],
-                               index=0 if st.session_state.kidney_values.get('appet', 'good')=='good' else 1,
-                               help="Patient's appetite")
-            pe = st.selectbox("Pedal Edema 🦶", ["yes", "no"],
-                            index=0 if st.session_state.kidney_values.get('pe', 'no')=='yes' else 1,
-                            help="Swelling in feet")
-            ane = st.selectbox("Anemia 🩸", ["yes", "no"],
-                             index=0 if st.session_state.kidney_values.get('ane', 'no')=='yes' else 1,
-                             help="Presence of anemia")
+        st.subheader("Additional Parameters")
+        wc = st.number_input("White Blood Cell Count (cells/cumm) ⚪", 1000, 30000, 
+                           st.session_state.kidney_values.get('wc', 8000),
+                           help="WBC count")
+        rc = st.number_input("Red Blood Cell Count (millions/cmm) 🔴", 1.0, 10.0, 
+                           float(st.session_state.kidney_values.get('rc', 4.5)), 0.1,
+                           help="RBC count")
+        htn = st.selectbox("Hypertension 💔", ["yes", "no"],
+                         index=0 if st.session_state.kidney_values.get('htn', 'no')=='yes' else 1,
+                         help="History of hypertension")
+        dm = st.selectbox("Diabetes Mellitus 🍭", ["yes", "no"],
+                        index=0 if st.session_state.kidney_values.get('dm', 'no')=='yes' else 1,
+                        help="History of diabetes")
+        cad = st.selectbox("Coronary Artery Disease 🫀", ["yes", "no"],
+                         index=0 if st.session_state.kidney_values.get('cad', 'no')=='yes' else 1,
+                         help="Coronary artery disease history")
+        appet = st.selectbox("Appetite 🍽️", ["good", "poor"],
+                           index=0 if st.session_state.kidney_values.get('appet', 'good')=='good' else 1,
+                           help="Patient's appetite")
+        pe = st.selectbox("Pedal Edema 🦶", ["yes", "no"],
+                        index=0 if st.session_state.kidney_values.get('pe', 'no')=='yes' else 1,
+                        help="Swelling in feet")
+        ane = st.selectbox("Anemia 🩸", ["yes", "no"],
+                         index=0 if st.session_state.kidney_values.get('ane', 'no')=='yes' else 1,
+                         help="Presence of anemia")
         
         if st.button("🔍 Predict Kidney Disease", type="primary"):
             # Encode categorical variables
@@ -541,104 +538,99 @@ elif page == "🧠 Parkinson's Disease":
             
             st.markdown("---")
             
-            col1, col2, col3 = st.columns(3)
-            
-            with col1:
-                st.subheader("Frequency Measures 🎵")
-                mdvp_fo = st.number_input("MDVP:Fo(Hz) 📢", 50.0, 300.0,
-                                         value=st.session_state.parkinsons_values.get('mdvp_fo', 150.0),
-                                         step=0.1,
-                                         help="Average vocal fundamental frequency (normal: 80-260 Hz)")
-                mdvp_fhi = st.number_input("MDVP:Fhi(Hz) ⬆️", 100.0, 600.0,
-                                          value=st.session_state.parkinsons_values.get('mdvp_fhi', 180.0),
-                                          step=0.1,
-                                          help="Maximum vocal fundamental frequency")
-                mdvp_flo = st.number_input("MDVP:Flo(Hz) ⬇️", 50.0, 300.0,
-                                          value=st.session_state.parkinsons_values.get('mdvp_flo', 100.0),
-                                          step=0.1,
-                                          help="Minimum vocal fundamental frequency")
-                mdvp_jitter_percent = st.number_input("MDVP:Jitter(%) 📊", 0.0, 1.0,
-                                                     value=st.session_state.parkinsons_values.get('mdvp_jitter_percent', 0.005),
-                                                     step=0.001, format="%.5f",
-                                                     help="Measure of variation in frequency (lower is better)")
-                mdvp_jitter_abs = st.number_input("MDVP:Jitter(Abs) 🔍", 0.0, 0.001,
-                                                 value=st.session_state.parkinsons_values.get('mdvp_jitter_abs', 0.00003),
-                                                 step=0.000001, format="%.8f",
-                                                 help="Absolute jitter in microseconds")
-                mdvp_rap = st.number_input("MDVP:RAP 📈", 0.0, 0.1,
-                                          value=st.session_state.parkinsons_values.get('mdvp_rap', 0.003),
-                                          step=0.001, format="%.5f",
-                                          help="Relative Amplitude Perturbation")
-                mdvp_ppq = st.number_input("MDVP:PPQ 📉", 0.0, 0.1,
-                                          value=st.session_state.parkinsons_values.get('mdvp_ppq', 0.003),
-                                          step=0.001, format="%.5f",
-                                          help="Five-point Period Perturbation Quotient")
-                jitter_ddp = st.number_input("Jitter:DDP 📐", 0.0, 0.1,
-                                            value=st.session_state.parkinsons_values.get('jitter_ddp', 0.008),
-                                            step=0.001, format="%.5f",
-                                            help="Average absolute difference of differences")
-            
-            with col2:
-                st.subheader("Shimmer Measures 🌊")
-                mdvp_shimmer = st.number_input("MDVP:Shimmer 📊", 0.0, 1.0,
-                                              value=st.session_state.parkinsons_values.get('mdvp_shimmer', 0.03),
-                                              step=0.001, format="%.5f",
-                                              help="Measure of variation in amplitude")
-                mdvp_shimmer_db = st.number_input("MDVP:Shimmer(dB) 🔊", 0.0, 2.0,
-                                                 value=st.session_state.parkinsons_values.get('mdvp_shimmer_db', 0.3),
-                                                 step=0.01,
-                                                 help="Shimmer in decibels")
-                shimmer_apq3 = st.number_input("Shimmer:APQ3 3️⃣", 0.0, 0.1,
-                                              value=st.session_state.parkinsons_values.get('shimmer_apq3', 0.015),
-                                              step=0.001, format="%.5f",
-                                              help="Three-point Amplitude Perturbation Quotient")
-                shimmer_apq5 = st.number_input("Shimmer:APQ5 5️⃣", 0.0, 0.1,
-                                              value=st.session_state.parkinsons_values.get('shimmer_apq5', 0.017),
-                                              step=0.001, format="%.5f",
-                                              help="Five-point Amplitude Perturbation Quotient")
-                mdvp_apq = st.number_input("MDVP:APQ 📏", 0.0, 0.1,
-                                          value=st.session_state.parkinsons_values.get('mdvp_apq', 0.024),
-                                          step=0.001, format="%.5f",
-                                          help="11-point Amplitude Perturbation Quotient")
-                shimmer_dda = st.number_input("Shimmer:DDA 〰️", 0.0, 0.1,
-                                             value=st.session_state.parkinsons_values.get('shimmer_dda', 0.045),
-                                             step=0.001, format="%.5f",
-                                             help="Average absolute difference between amplitudes")
-            
-            with col3:
-                st.subheader("Other Measures ⚡")
-                nhr = st.number_input("NHR 🔉", 0.0, 1.0,
-                                     value=st.session_state.parkinsons_values.get('nhr', 0.025),
-                                     step=0.001, format="%.5f",
-                                     help="Noise-to-Harmonics Ratio (lower is better)")
-                hnr = st.number_input("HNR 🎼", 5.0, 35.0,
-                                     value=st.session_state.parkinsons_values.get('hnr', 20.0),
+            st.subheader("Frequency Measures 🎵")
+            mdvp_fo = st.number_input("MDVP:Fo(Hz) 📢", 50.0, 300.0,
+                                     value=st.session_state.parkinsons_values.get('mdvp_fo', 150.0),
                                      step=0.1,
-                                     help="Harmonics-to-Noise Ratio (higher is better)")
-                rpde = st.number_input("RPDE 🔄", 0.2, 0.8,
-                                      value=st.session_state.parkinsons_values.get('rpde', 0.5),
-                                      step=0.01,
-                                      help="Recurrence Period Density Entropy")
-                dfa = st.number_input("DFA 📈", 0.5, 0.9,
-                                     value=st.session_state.parkinsons_values.get('dfa', 0.7),
-                                     step=0.01,
-                                     help="Detrended Fluctuation Analysis")
-                spread1 = st.number_input("spread1 📊", -8.0, -2.0,
-                                         value=st.session_state.parkinsons_values.get('spread1', -5.0),
-                                         step=0.1,
-                                         help="Nonlinear measure of fundamental frequency variation")
-                spread2 = st.number_input("spread2 📉", 0.0, 0.5,
-                                         value=st.session_state.parkinsons_values.get('spread2', 0.2),
+                                     help="Average vocal fundamental frequency (normal: 80-260 Hz)")
+            mdvp_fhi = st.number_input("MDVP:Fhi(Hz) ⬆️", 100.0, 600.0,
+                                      value=st.session_state.parkinsons_values.get('mdvp_fhi', 180.0),
+                                      step=0.1,
+                                      help="Maximum vocal fundamental frequency")
+            mdvp_flo = st.number_input("MDVP:Flo(Hz) ⬇️", 50.0, 300.0,
+                                      value=st.session_state.parkinsons_values.get('mdvp_flo', 100.0),
+                                      step=0.1,
+                                      help="Minimum vocal fundamental frequency")
+            mdvp_jitter_percent = st.number_input("MDVP:Jitter(%) 📊", 0.0, 1.0,
+                                                 value=st.session_state.parkinsons_values.get('mdvp_jitter_percent', 0.005),
+                                                 step=0.001, format="%.5f",
+                                                 help="Measure of variation in frequency (lower is better)")
+            mdvp_jitter_abs = st.number_input("MDVP:Jitter(Abs) 🔍", 0.0, 0.001,
+                                             value=st.session_state.parkinsons_values.get('mdvp_jitter_abs', 0.00003),
+                                             step=0.000001, format="%.8f",
+                                             help="Absolute jitter in microseconds")
+            mdvp_rap = st.number_input("MDVP:RAP 📈", 0.0, 0.1,
+                                      value=st.session_state.parkinsons_values.get('mdvp_rap', 0.003),
+                                      step=0.001, format="%.5f",
+                                      help="Relative Amplitude Perturbation")
+            mdvp_ppq = st.number_input("MDVP:PPQ 📉", 0.0, 0.1,
+                                      value=st.session_state.parkinsons_values.get('mdvp_ppq', 0.003),
+                                      step=0.001, format="%.5f",
+                                      help="Five-point Period Perturbation Quotient")
+            jitter_ddp = st.number_input("Jitter:DDP 📐", 0.0, 0.1,
+                                        value=st.session_state.parkinsons_values.get('jitter_ddp', 0.008),
+                                        step=0.001, format="%.5f",
+                                        help="Average absolute difference of differences")
+            
+            st.subheader("Shimmer Measures 🌊")
+            mdvp_shimmer = st.number_input("MDVP:Shimmer 📊", 0.0, 1.0,
+                                          value=st.session_state.parkinsons_values.get('mdvp_shimmer', 0.03),
+                                          step=0.001, format="%.5f",
+                                          help="Measure of variation in amplitude")
+            mdvp_shimmer_db = st.number_input("MDVP:Shimmer(dB) 🔊", 0.0, 2.0,
+                                         value=st.session_state.parkinsons_values.get('mdvp_shimmer_db', 0.3),
                                          step=0.01,
-                                         help="Second nonlinear measure of variation")
-                d2 = st.number_input("D2 🌀", 1.0, 4.0,
-                                    value=st.session_state.parkinsons_values.get('d2', 2.5),
-                                    step=0.1,
-                                    help="Correlation dimension")
-                ppe = st.number_input("PPE 🎯", 0.0, 0.7,
-                                     value=st.session_state.parkinsons_values.get('ppe', 0.2),
+                                         help="Shimmer in decibels")
+            shimmer_apq3 = st.number_input("Shimmer:APQ3 3️⃣", 0.0, 0.1,
+                                          value=st.session_state.parkinsons_values.get('shimmer_apq3', 0.015),
+                                          step=0.001, format="%.5f",
+                                          help="Three-point Amplitude Perturbation Quotient")
+            shimmer_apq5 = st.number_input("Shimmer:APQ5 5️⃣", 0.0, 0.1,
+                                          value=st.session_state.parkinsons_values.get('shimmer_apq5', 0.017),
+                                          step=0.001, format="%.5f",
+                                          help="Five-point Amplitude Perturbation Quotient")
+            mdvp_apq = st.number_input("MDVP:APQ 📏", 0.0, 0.1,
+                                      value=st.session_state.parkinsons_values.get('mdvp_apq', 0.024),
+                                      step=0.001, format="%.5f",
+                                      help="11-point Amplitude Perturbation Quotient")
+            shimmer_dda = st.number_input("Shimmer:DDA 〰️", 0.0, 0.1,
+                                         value=st.session_state.parkinsons_values.get('shimmer_dda', 0.045),
+                                         step=0.001, format="%.5f",
+                                         help="Average absolute difference between amplitudes")
+            
+            st.subheader("Other Measures ⚡")
+            nhr = st.number_input("NHR 🔉", 0.0, 1.0,
+                                 value=st.session_state.parkinsons_values.get('nhr', 0.025),
+                                 step=0.001, format="%.5f",
+                                 help="Noise-to-Harmonics Ratio (lower is better)")
+            hnr = st.number_input("HNR 🎼", 5.0, 35.0,
+                                 value=st.session_state.parkinsons_values.get('hnr', 20.0),
+                                 step=0.1,
+                                 help="Harmonics-to-Noise Ratio (higher is better)")
+            rpde = st.number_input("RPDE 🔄", 0.2, 0.8,
+                                  value=st.session_state.parkinsons_values.get('rpde', 0.5),
+                                  step=0.01,
+                                  help="Recurrence Period Density Entropy")
+            dfa = st.number_input("DFA 📈", 0.5, 0.9,
+                                 value=st.session_state.parkinsons_values.get('dfa', 0.7),
+                                 step=0.01,
+                                 help="Detrended Fluctuation Analysis")
+            spread1 = st.number_input("spread1 📊", -8.0, -2.0,
+                                     value=st.session_state.parkinsons_values.get('spread1', -5.0),
+                                     step=0.1,
+                                     help="Nonlinear measure of fundamental frequency variation")
+            spread2 = st.number_input("spread2 📉", 0.0, 0.5,
+                                     value=st.session_state.parkinsons_values.get('spread2', 0.2),
                                      step=0.01,
-                                     help="Pitch Period Entropy")
+                                     help="Second nonlinear measure of variation")
+            d2 = st.number_input("D2 🌀", 1.0, 4.0,
+                                value=st.session_state.parkinsons_values.get('d2', 2.5),
+                                step=0.1,
+                                help="Correlation dimension")
+            ppe = st.number_input("PPE 🎯", 0.0, 0.7,
+                                 value=st.session_state.parkinsons_values.get('ppe', 0.2),
+                                 step=0.01,
+                                 help="Pitch Period Entropy")
             
             if st.button("🔍 Detect Parkinson's Disease", type="primary"):
                 # Create feature array
