@@ -495,48 +495,17 @@ elif page == "🫀 Liver Disease":
         
         st.markdown("---")
         
-        col1, col2 = st.columns(2)
-        
-        with col1:
-            st.subheader("Patient Information")
-            age = st.number_input("Age (years) 👤", 1, 120, 
-                                 value=st.session_state.liver_values.get('age', 45),
-                                 help="Patient's age in years")
-            gender = st.selectbox("Gender ⚧️", ["Male", "Female"],
-                                 index=0 if st.session_state.liver_values.get('gender', 'Male') == 'Male' else 1,
-                                 help="Patient's biological gender")
-            total_bilirubin = st.number_input("Total Bilirubin (mg/dL) 🟡", 0.1, 100.0, 
-                                             value=st.session_state.liver_values.get('total_bilirubin', 1.0),
-                                             step=0.1,
-                                             help="Total bilirubin level in blood (normal: 0.1-1.2 mg/dL)")
-            direct_bilirubin = st.number_input("Direct Bilirubin (mg/dL) 🟠", 0.1, 50.0, 
-                                              value=st.session_state.liver_values.get('direct_bilirubin', 0.3),
-                                              step=0.1,
-                                              help="Direct bilirubin level (normal: 0.0-0.3 mg/dL)")
-            alkaline_phosphotase = st.number_input("Alkaline Phosphotase (IU/L) ⚗️", 10, 2000, 
-                                                  value=st.session_state.liver_values.get('alkaline_phosphotase', 200),
-                                                  help="ALP enzyme level (normal: 44-147 IU/L)")
-        
-        with col2:
-            st.subheader("Liver Function Tests")
-            alamine_aminotransferase = st.number_input("Alamine Aminotransferase (IU/L) 🧪", 1, 2000, 
-                                                      value=st.session_state.liver_values.get('alamine_aminotransferase', 30),
-                                                      help="ALT/SGPT enzyme level (normal: 7-56 IU/L)")
-            aspartate_aminotransferase = st.number_input("Aspartate Aminotransferase (IU/L) 🔬", 1, 2000, 
-                                                        value=st.session_state.liver_values.get('aspartate_aminotransferase', 35),
-                                                        help="AST/SGOT enzyme level (normal: 10-40 IU/L)")
-            total_protiens = st.number_input("Total Proteins (g/dL) 🥩", 1.0, 15.0, 
-                                           value=st.session_state.liver_values.get('total_protiens', 7.0),
-                                           step=0.1,
-                                           help="Total protein in blood (normal: 6.0-8.3 g/dL)")
-            albumin = st.number_input("Albumin (g/dL) 🧬", 0.5, 10.0, 
-                                    value=st.session_state.liver_values.get('albumin', 4.0),
-                                    step=0.1,
-                                    help="Albumin protein level (normal: 3.5-5.5 g/dL)")
-            ag_ratio = st.number_input("Albumin/Globulin Ratio 📊", 0.1, 5.0, 
-                                      value=st.session_state.liver_values.get('ag_ratio', 1.0),
-                                      step=0.1,
-                                      help="A/G ratio (normal: 1.0-2.5)")
+        st.subheader("Patient Information & Liver Function Tests")
+        age = st.number_input("Age (years) 👤", 1, 120, value=st.session_state.liver_values.get('age', 45), help="Patient's age in years")
+        gender = st.selectbox("Gender ⚧️", ["Male", "Female"], index=0 if st.session_state.liver_values.get('gender', 'Male') == 'Male' else 1, help="Patient's biological gender")
+        total_bilirubin = st.number_input("Total Bilirubin (mg/dL) 🟡", 0.1, 100.0, value=st.session_state.liver_values.get('total_bilirubin', 1.0), step=0.1, help="Total bilirubin level in blood (normal: 0.1-1.2 mg/dL)")
+        direct_bilirubin = st.number_input("Direct Bilirubin (mg/dL) 🟠", 0.1, 50.0, value=st.session_state.liver_values.get('direct_bilirubin', 0.3), step=0.1, help="Direct bilirubin level (normal: 0.0-0.3 mg/dL)")
+        alkaline_phosphotase = st.number_input("Alkaline Phosphotase (IU/L) ⚗️", 10, 2000, value=st.session_state.liver_values.get('alkaline_phosphotase', 200), help="ALP enzyme level (normal: 44-147 IU/L)")
+        alamine_aminotransferase = st.number_input("Alamine Aminotransferase (IU/L) 🧪", 1, 2000, value=st.session_state.liver_values.get('alamine_aminotransferase', 30), help="ALT/SGPT enzyme level (normal: 7-56 IU/L)")
+        aspartate_aminotransferase = st.number_input("Aspartate Aminotransferase (IU/L) 🔬", 1, 2000, value=st.session_state.liver_values.get('aspartate_aminotransferase', 35), help="AST/SGOT enzyme level (normal: 10-40 IU/L)")
+        total_protiens = st.number_input("Total Proteins (g/dL) 🥩", 1.0, 15.0, value=st.session_state.liver_values.get('total_protiens', 7.0), step=0.1, help="Total protein in blood (normal: 6.0-8.3 g/dL)")
+        albumin = st.number_input("Albumin (g/dL) 🧬", 0.5, 10.0, value=st.session_state.liver_values.get('albumin', 4.0), step=0.1, help="Albumin protein level (normal: 3.5-5.5 g/dL)")
+        ag_ratio = st.number_input("Albumin/Globulin Ratio 📊", 0.1, 5.0, value=st.session_state.liver_values.get('ag_ratio', 1.0), step=0.1, help="A/G ratio (normal: 1.0-2.5)")
         
         if st.button("🔍 Predict Liver Disease", type="primary"):
             # Encode gender
