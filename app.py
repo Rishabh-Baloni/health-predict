@@ -515,8 +515,8 @@ if page == "🫘 Kidney Disease":
                     st.warning("⚠️ **Recommendation:** Immediate consultation with a nephrologist is advised.")
                 else:
                     if risk_override:
-                        reasons_str = ', '.join(override_reasons)
-                        st.markdown(f'<div class="gradient-card"><h2>⚠️ Chronic Kidney Disease Detected</h2><p style="font-size:20px;">Confidence: {confidence:.2f}%</p><p style="font-size:16px;">Clinical override triggered: {reasons_str}</p></div>', unsafe_allow_html=True)
+                        # Keep display consistent: show standard CKD detected card without extra details
+                        st.markdown(f'<div class="gradient-card"><h2>⚠️ Chronic Kidney Disease Detected</h2><p style="font-size:20px;">Confidence: {confidence:.2f}%</p></div>', unsafe_allow_html=True)
                         st.warning("⚠️ **Recommendation:** Immediate consultation with a nephrologist is advised.")
                     else:
                         st.markdown(f'<div class="success-box"><h2>✅ No Chronic Kidney Disease Detected</h2><p style="font-size:20px;">Confidence: {confidence:.2f}%</p></div>', unsafe_allow_html=True)
