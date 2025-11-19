@@ -1,4 +1,0 @@
-1. Do no pip intall anything in local disk c, instead make a venv file in this directory only.
-2. Do not make a directory inside this directory build the project under this new named folder only.
-3. Always check and follow the Rules.txt file before executing any pip install or package installation commands.
-4. When creating projects or installing packages, always activate the venv first using .\venv\Scripts\Activate.ps1
