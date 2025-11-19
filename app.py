@@ -316,10 +316,10 @@ if page == "🫘 Kidney Disease":
         
         if use_sample_healthy:
             st.session_state.kidney_values = {
-                'age': 40, 'bp': 80, 'sg': 1.025, 'al': 0, 'su': 0, 'rbc': 'normal',
-                'pc': 'normal', 'pcc': 'notpresent', 'ba': 'notpresent', 'bgr': 140,
-                'bu': 10, 'sc': 1.2, 'sod': 135, 'pot': 5.0, 'hemo': 15.0, 'pcv': 48,
-                'wc': 10400, 'rc': 4.5, 'htn': 'no', 'dm': 'no', 'cad': 'no',
+                'age': 23, 'bp': 80, 'sg': 1.025, 'al': 0, 'su': 0, 'rbc': 'normal',
+                'pc': 'normal', 'pcc': 'notpresent', 'ba': 'notpresent', 'bgr': 70,
+                'bu': 36, 'sc': 1.0, 'sod': 150, 'pot': 4.6, 'hemo': 17.0, 'pcv': 52,
+                'wc': 9800, 'rc': 5.0, 'htn': 'no', 'dm': 'no', 'cad': 'no',
                 'appet': 'good', 'pe': 'no', 'ane': 'no'
             }
             st.success("✅ Loaded sample healthy patient data")
