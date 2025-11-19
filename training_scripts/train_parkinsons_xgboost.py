@@ -101,9 +101,9 @@ joblib.dump(model, 'models/parkinsons/parkinsons_xgboost_basic.pkl')
 joblib.dump(scaler, 'models/parkinsons/parkinsons_xgboost_scaler.pkl')
 joblib.dump(X.columns.tolist(), 'models/parkinsons/parkinsons_xgboost_features.pkl')
 
-print("   ✓ Model saved: models/parkinsons/parkinsons_xgboost_basic.pkl")
-print("   ✓ Scaler saved: models/parkinsons/parkinsons_xgboost_scaler.pkl")
-print("   ✓ Feature names saved: models/parkinsons/parkinsons_xgboost_features.pkl")
+print("   Model saved: models/parkinsons/parkinsons_xgboost_basic.pkl")
+print("   Scaler saved: models/parkinsons/parkinsons_xgboost_scaler.pkl")
+print("   Feature names saved: models/parkinsons/parkinsons_xgboost_features.pkl")
 
 # Save model metadata
 metadata = {
@@ -113,7 +113,7 @@ metadata = {
     'target_classes': ['Healthy', "Parkinson's Disease"]
 }
 joblib.dump(metadata, 'models/parkinsons/parkinsons_xgboost_metadata.pkl')
-print("   ✓ Metadata saved: models/parkinsons/parkinsons_xgboost_metadata.pkl")
+print("   Metadata saved: models/parkinsons/parkinsons_xgboost_metadata.pkl")
 
-print("\n✅ Training complete!")
+print("\nTraining complete!")
 print("="*60)

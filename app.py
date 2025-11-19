@@ -564,9 +564,7 @@ elif page == "🧠 Parkinson's Disease":
     features_list = load_model('models/parkinsons/parkinsons_xgboost_features.pkl')
     
     if model is None or scaler is None:
-        st.error("⚠️ Parkinson's model is currently unavailable due to version compatibility issues.")
-        st.info("💡 The kidney and liver disease models are working properly. Please use those for now.")
-        st.stop()
+        st.error("⚠️ Model not found! Please train the model first by running `python training_scripts/train_parkinsons_xgboost.py`")
     else:
         st.markdown('<div class="info-box">✅ Model loaded successfully - Ready for prediction!</div>', unsafe_allow_html=True)
         st.markdown("<br>", unsafe_allow_html=True)
