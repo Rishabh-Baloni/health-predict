@@ -596,7 +596,7 @@ elif page == "🧠 Parkinson's Disease":
         
         if input_method == "Manual Entry":
             # Sample data buttons
-            st.subheader("🧪 Quick Test Samples")
+            st.markdown('<span style="font-size:1.5rem;font-weight:700;display:flex;align-items:center;gap:0.5em;">🧪 Quick Test Samples</span>', unsafe_allow_html=True)
             col_btn1, col_btn2, col_btn3 = st.columns([1, 1, 2])
             with col_btn1:
                 use_sample_pd = st.button("📊 Load Sample: Parkinson's Patient", use_container_width=True)
@@ -635,7 +635,7 @@ elif page == "🧠 Parkinson's Disease":
             
             st.markdown("---")
             
-            st.subheader("Frequency Measures 🎵")
+            st.markdown('<span style="font-size:1.5rem;font-weight:700;display:flex;align-items:center;gap:0.5em;">Frequency Measures <span style="font-size:2rem;">🎵</span></span>', unsafe_allow_html=True)
             mdvp_fo = st.number_input("MDVP:Fo(Hz) 📢", 50.0, 300.0,
                                      value=st.session_state.parkinsons_values.get('mdvp_fo', 150.0),
                                      step=0.1,
@@ -669,7 +669,8 @@ elif page == "🧠 Parkinson's Disease":
                                         step=0.001, format="%.5f",
                                         help="Average absolute difference of differences")
             
-            st.subheader("Shimmer Measures 🌊")
+            st.markdown('<span style="font-size:1.5rem;font-weight:700;display:flex;align-items:center;gap:0.5em;">Shimmer Measures <span style="font-size:2rem;">🌊</span></span>', unsafe_allow_html=True)
+                        st.markdown('<span style="font-size:1.5rem;font-weight:700;display:flex;align-items:center;gap:0.5em;">Jitter Measures <span style="font-size:2rem;">🪁</span></span>', unsafe_allow_html=True)
             mdvp_shimmer = st.number_input("MDVP:Shimmer 📊", 0.0, 1.0,
                                           value=st.session_state.parkinsons_values.get('mdvp_shimmer', 0.03),
                                           step=0.001, format="%.5f",
@@ -695,7 +696,7 @@ elif page == "🧠 Parkinson's Disease":
                                          step=0.001, format="%.5f",
                                          help="Average absolute difference between amplitudes")
             
-            st.subheader("Other Measures ⚡")
+            st.markdown('<span style="font-size:1.5rem;font-weight:700;display:flex;align-items:center;gap:0.5em;">Other Measures <span style="font-size:2rem;">⚡</span></span>', unsafe_allow_html=True)
             nhr = st.number_input("NHR 🔉", 0.0, 1.0,
                                  value=st.session_state.parkinsons_values.get('nhr', 0.025),
                                  step=0.001, format="%.5f",
