@@ -1,5 +1,15 @@
 import streamlit as st
 import joblib
+import sys
+import streamlit as st
+import xgboost
+import sklearn
+
+# Display Python and package versions in sidebar for debugging
+st.sidebar.markdown('---')
+st.sidebar.markdown(f"**Python version:** {sys.version.split()[0]}")
+st.sidebar.markdown(f"**xgboost version:** {xgboost.__version__}")
+st.sidebar.markdown(f"**scikit-learn version:** {sklearn.__version__}")
 import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
