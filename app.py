@@ -868,24 +868,23 @@ elif page == "🏠 Home":
     
     # Technology Stack
     st.header("💻 Technology Stack")
-    st.markdown('<div class="info-box">', unsafe_allow_html=True)
-    col1, col2 = st.columns(2)
-    with col1:
-        st.write("""
-        **Machine Learning:**
-        - Scikit-learn
-        - XGBoost
-        - PyCaret
-        - TensorFlow/Keras
-        """)
-    with col2:
-        st.write("""
-        **Visualization & Deployment:**
-        - Streamlit
-        - Plotly
-        - Pandas & NumPy
-        """)
-    st.markdown('</div>', unsafe_allow_html=True)
+    st.markdown('''
+    <div class="info-box">
+        <h3>Machine Learning</h3>
+        <ul>
+            <li>Scikit-learn</li>
+            <li>XGBoost</li>
+            <li>PyCaret</li>
+            <li>TensorFlow/Keras</li>
+        </ul>
+        <h3>Visualization & Deployment</h3>
+        <ul>
+            <li>Streamlit</li>
+            <li>Plotly</li>
+            <li>Pandas & NumPy</li>
+        </ul>
+    </div>
+    ''', unsafe_allow_html=True)
     
     st.markdown("---")
     
