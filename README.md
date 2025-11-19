@@ -148,8 +148,8 @@ The platform provides healthcare professionals and researchers with a fast, accu
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/healthpredict.git
-cd healthpredict
+git clone https://github.com/Rishabh-Baloni/health-predict.git
+cd health-predict
 ```
 
 ### Step 2: Create Virtual Environment
@@ -245,44 +245,51 @@ The app will open in your browser at `http://localhost:8501`
 ## 📁 Project Structure
 
 ```
-healthpredict/
+health-predict/
+├── app.py                         # Main Streamlit application
+├── requirements.txt               # Python dependencies
 ├── data/                          # Datasets
-│   ├── kidney/
+│   ├── kidney_disease/
 │   │   └── kidney_disease.csv
-│   ├── liver/
+│   ├── liver_disease/
 │   │   └── indian_liver_patient.csv
-│   └── parkinsons/
+│   └── parkinsons_disease/
 │       └── parkinsons.data
 │
-├── models/                        # Trained models
+├── models/                        # Trained models and metadata
 │   ├── kidney/
 │   │   ├── kidney_extratrees_basic.pkl
 │   │   ├── kidney_extratrees_scaler.pkl
-│   │   ├── kidney_pycaret_decisiontree.pkl
-│   │   └── ...
+│   │   ├── kidney_extratrees_metadata.pkl
+│   │   ├── kidney_extratrees_features.pkl
+│   │   ├── kidney_extratrees_pca_ros.pkl
+│   │   ├── kidney_extratrees_pca_ros_scaler.pkl
+│   │   └── kidney_pycaret_decisiontree.pkl
 │   ├── liver/
 │   │   ├── liver_randomforest_basic.pkl
-│   │   └── ...
+│   │   ├── liver_randomforest_scaler.pkl
+│   │   ├── liver_randomforest_metadata.pkl
+│   │   ├── liver_randomforest_features.pkl
+│   │   └── liver_pycaret_xgboost.pkl
 │   └── parkinsons/
 │       ├── parkinsons_xgboost_basic.pkl
-│       └── ...
+│       ├── parkinsons_xgboost_scaler.pkl
+│       ├── parkinsons_xgboost_metadata.pkl
+│       ├── parkinsons_xgboost_features.pkl
+│       └── parkinsons_pycaret_lightgbm.pkl
 │
 ├── training_scripts/              # Model training scripts
 │   ├── train_kidney_extratrees.py
+│   ├── train_kidney_extratrees_pca_ros.py
 │   ├── train_kidney_pycaret_automl.py
+│   ├── train_kidney_neuralnet_keras.py
 │   ├── train_liver_randomforest.py
+│   ├── train_liver_pycaret_automl.py
 │   ├── train_parkinsons_xgboost.py
-│   └── ...
+│   └── train_parkinsons_pycaret_automl.py
 │
-├── docs/                          # Documentation
-│   ├── README.md
-│   ├── PROJECT_SHOWCASE.md
-│   ├── MODEL_COMPARISON_RESULTS.md
-│   └── NAMING_CONVENTIONS.md
-│
-├── app.py                         # Main Streamlit application
-├── app_enhanced.py                # Enhanced UI version
-├── requirements.txt               # Python dependencies
+├── notebooks/                     # Optional notebooks
+├── pages/                         # Optional Streamlit pages
 ├── .gitignore                     # Git ignore file
 └── README.md                      # This file
 ```
