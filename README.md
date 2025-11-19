@@ -345,27 +345,9 @@ This tool is designed as an **educational project** and **research prototype**. 
 
 ---
 
-## 👨‍💻 Author
-
-**Your Name**
-
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your Profile](https://linkedin.com/in/yourprofile)
-- Email: your.email@example.com
-
----
-
-## 🙏 Acknowledgments
-
-- Dataset sources: UCI Machine Learning Repository, Kaggle
-- Inspiration: Healthcare AI research community
-- Libraries: scikit-learn, Streamlit, PyCaret teams
-
----
-
 <div align="center">
 
-**Made with ❤️ for healthcare innovation**
+**Made with ❤️ for healthcare innovation by Rishabh Baloni**
 
 ⭐ Star this repo if you find it helpful!
 
