@@ -289,19 +289,6 @@ healthpredict/
 
 ---
 
-## 🖼️ Screenshots
-
-### Home Page
-![Home Page](docs/screenshots/home.png)
-
-### Kidney Disease Prediction
-![Kidney Prediction](docs/screenshots/kidney.png)
-
-### Results with Confidence Gauge
-![Results](docs/screenshots/results.png)
-
----
-
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
