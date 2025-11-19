@@ -636,6 +636,7 @@ elif page == "🧠 Parkinson's Disease":
             st.markdown("---")
             
             st.markdown('<span style="font-size:1.5rem;font-weight:700;display:flex;align-items:center;gap:0.5em;">Frequency Measures <span style="font-size:2rem;">🎵</span></span>', unsafe_allow_html=True)
+                        st.markdown('<span style="font-size:1.5rem;font-weight:700;display:flex;align-items:center;gap:0.5em;">Jitter Measures <span style="font-size:2rem;">🪁</span></span>', unsafe_allow_html=True)
             mdvp_fo = st.number_input("MDVP:Fo(Hz) 📢", 50.0, 300.0,
                                      value=st.session_state.parkinsons_values.get('mdvp_fo', 150.0),
                                      step=0.1,
@@ -670,7 +671,6 @@ elif page == "🧠 Parkinson's Disease":
                                         help="Average absolute difference of differences")
             
             st.markdown('<span style="font-size:1.5rem;font-weight:700;display:flex;align-items:center;gap:0.5em;">Shimmer Measures <span style="font-size:2rem;">🌊</span></span>', unsafe_allow_html=True)
-                        st.markdown('<span style="font-size:1.5rem;font-weight:700;display:flex;align-items:center;gap:0.5em;">Jitter Measures <span style="font-size:2rem;">🪁</span></span>', unsafe_allow_html=True)
             mdvp_shimmer = st.number_input("MDVP:Shimmer 📊", 0.0, 1.0,
                                           value=st.session_state.parkinsons_values.get('mdvp_shimmer', 0.03),
                                           step=0.001, format="%.5f",
