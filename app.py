@@ -441,7 +441,7 @@ if page == "🫘 Kidney Disease":
                 st.plotly_chart(fig, use_container_width=True)
             
             with col_result:
-                if prediction == 2:  # CKD
+                if prediction == 1:  # CKD
                     st.markdown(f'<div class="gradient-card"><h2>⚠️ Chronic Kidney Disease Detected</h2><p style="font-size:20px;">Confidence: {confidence:.2f}%</p></div>', unsafe_allow_html=True)
                     st.warning("⚠️ **Recommendation:** Immediate consultation with a nephrologist is advised.")
                 else:
