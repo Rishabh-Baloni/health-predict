@@ -649,11 +649,11 @@ elif page == "🧠 Parkinson's Disease":
                                       value=st.session_state.parkinsons_values.get('mdvp_flo', 100.0),
                                       step=0.1,
                                       help="Minimum vocal fundamental frequency")
-            mdvp_jitter_percent = st.number_input("MDVP:Jitter(%) 📊", 0.0, 1.0,
+            mdvp_jitter_percent = st.number_input("MDVP:Jitter% 📊", 0.0, 1.0,
                                                  value=st.session_state.parkinsons_values.get('mdvp_jitter_percent', 0.005),
                                                  step=0.001, format="%.5f",
                                                  help="Measure of variation in frequency (lower is better)")
-            mdvp_jitter_abs = st.number_input("MDVP:Jitter(Abs) 🔍", 0.0, 0.001,
+            mdvp_jitter_abs = st.number_input("MDVP:JitterAbs 🔍", 0.0, 0.001,
                                              value=st.session_state.parkinsons_values.get('mdvp_jitter_abs', 0.00003),
                                              step=0.000001, format="%.8f",
                                              help="Absolute jitter in microseconds")
@@ -675,7 +675,7 @@ elif page == "🧠 Parkinson's Disease":
                                           value=st.session_state.parkinsons_values.get('mdvp_shimmer', 0.03),
                                           step=0.001, format="%.5f",
                                           help="Measure of variation in amplitude")
-            mdvp_shimmer_db = st.number_input("MDVP:Shimmer(dB) 🔊", 0.0, 2.0,
+            mdvp_shimmer_db = st.number_input("MDVP:ShimmerdB 🔊", 0.0, 2.0,
                                          value=st.session_state.parkinsons_values.get('mdvp_shimmer_db', 0.3),
                                          step=0.01,
                                          help="Shimmer in decibels")
